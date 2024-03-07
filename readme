@@ -1,0 +1,20 @@
+để tránh conflict code thì mng hãy code ra nhánh riêng
+
+
+để tạo nhánh mới
+  git branch "tên nhánh mng muốn đặt"
+vd: git branch phi
+
+sau đó chuyển sang nhánh của mng
+  git checkout "tên nhánh"
+vd: git checkout phi
+
+sau đó code như bthng
+
+
+sang lần code sau thì trc khi code mng pull code từ main về
+  git fetch
+  git pull origin main
+
+  git push origin 'tên nhánh mình'
+  vdu git push origin phi

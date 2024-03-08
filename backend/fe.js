@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/schedule';
+const url = 'https://44.226.145.213:10000/schedule';
 
 // Get cookies from the document header
 const cookie = document.cookie;

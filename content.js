@@ -36,7 +36,7 @@ app.post("/schedule", async (req, res) => {
         res.send(data); 
         console.log("data: ", scheduleData);// Send data as JSON response
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error:', error.message);
         res.status(500).json({ error: 'An error occurred' }); // Send error as JSON response
     }
 });

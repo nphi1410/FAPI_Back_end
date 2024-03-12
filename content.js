@@ -8,17 +8,9 @@ const app = express();
 // Enable CORS for all routes
 app.use(cors());
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
-app.get('/schedule2', (req, res) => {
-    try {
-        res.send('Chao em');
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ error: 'An error occurred' }); // Send error as JSON response
-    }
-    
+app.get('/schedule', (req, res) => {
+    // Stringify the request headers and send them as part of the response
+    res.send('Request headers: ' + JSON.stringify(req.headers));
 });
 
 app.post("/schedule", async (req, res) => {
@@ -36,7 +28,7 @@ app.post("/schedule", async (req, res) => {
         });
 
         // Logging the cookie might pose a security risk, consider removing it in production
-        console.log("Received cookie:", cookie);
+        // console.log("Received cookie:", cookie);
 
         const data = await extractSchedule(response.data);
 

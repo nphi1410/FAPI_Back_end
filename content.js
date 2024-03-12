@@ -11,6 +11,9 @@ app.use(cors());
 app.get('/', (req, res) => {
     res.send('Hello World');
 });
+app.get('/schedule2', (req, res) => {
+    res.send('Chao em');
+});
 
 app.post("/schedule", async (req, res) => {
     const cookie = req.headers.fapcookie;

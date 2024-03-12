@@ -8,7 +8,7 @@ const app = express();
 // Enable CORS for all routes
 app.use(cors());
 
-app.get("/schedule", async (req, res) => {
+app.get("/Student.aspx", async (req, res) => {
     const cookie = req.headers.fapcookie;
 
     try {

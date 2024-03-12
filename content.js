@@ -22,7 +22,7 @@ app.post("/schedule", async (req, res) => {
             }
         });
 
-        // console.log(cookie);
+        console.log(cookie);
         const data = await extractSchedule(response.data);
         res.send(data); 
         console.log("data: ", scheduleData);// Send data as JSON response

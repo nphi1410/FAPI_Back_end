@@ -25,19 +25,29 @@ app.post("/schedule", async (req, res) => {
     const cookie = req.headers.fapcookie;
 
     try {
+        if (!cookie) {
+            throw new Error('Cookie is missing in the request headers');
+        }
+
         const response = await axios.get('https://fap.fpt.edu.vn/Report/ScheduleOfWeek.aspx', {
             headers: {
                 cookie
             }
         });
 
-        console.log(cookie);
+        // Logging the cookie might pose a security risk, consider removing it in production
+        console.log("Received cookie:", cookie);
+
         const data = await extractSchedule(response.data);
-        res.send(data); 
-        console.log("data: ", scheduleData);// Send data as JSON response
+
+        // Sending extracted data as JSON response
+        res.json(data);
+
+        // Logging the data for debugging purposes
+        console.log("Extracted schedule data:", data);
     } catch (error) {
-        res.send('Error:', error.message);
-        res.status(500).json({ error: 'An error occurred' }); // Send error as JSON response
+        console.error('Error:', error);
+        res.status(500).json({ error: error.message }); // Sending error as JSON response
     }
 });
 

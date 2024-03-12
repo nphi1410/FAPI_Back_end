@@ -8,12 +8,7 @@ const app = express();
 // Enable CORS for all routes
 app.use(cors());
 
-app.get('/schedule', (req, res) => {
-    // Stringify the request headers and send them as part of the response
-    res.send('Request headers: ' + JSON.stringify(req.headers));
-});
-
-app.post("/schedule", async (req, res) => {
+app.get("/schedule", async (req, res) => {
     const cookie = req.headers.fapcookie;
 
     try {

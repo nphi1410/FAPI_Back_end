@@ -12,7 +12,13 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 app.get('/schedule2', (req, res) => {
-    res.send('Chao em');
+    try {
+        res.send('Chao em');
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'An error occurred' }); // Send error as JSON response
+    }
+    
 });
 
 app.post("/schedule", async (req, res) => {

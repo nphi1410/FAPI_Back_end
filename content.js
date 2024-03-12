@@ -10,6 +10,7 @@ app.use(cors());
 
 app.get("/Student.aspx", async (req, res) => {
     const cookie = req.headers.fapcookie;
+    console.log(req.headers);
 
     try {
         if (!cookie) {
